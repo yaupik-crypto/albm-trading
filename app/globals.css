@@ -4,52 +4,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ALBM Trading Premium Dark Theme - Deep Navy, Slate Grey, Silver */
-  --background: #0a192f;
-  --foreground: #ccd6f6;
-  --card: #112240;
-  --card-foreground: #ccd6f6;
-  --popover: #112240;
-  --popover-foreground: #ccd6f6;
-  --primary: #ccd6f6;
-  --primary-foreground: #0a192f;
-  --secondary: #1d3461;
-  --secondary-foreground: #ccd6f6;
-  --muted: #1d3461;
-  --muted-foreground: #8892b0;
-  --accent: #64ffda;
-  --accent-foreground: #0a192f;
-  --destructive: #ff6b6b;
-  --destructive-foreground: #0a192f;
-  --border: #233554;
-  --input: #1d3461;
-  --ring: #64ffda;
-  --chart-1: #64ffda;
-  --chart-2: #8892b0;
-  --chart-3: #ccd6f6;
-  --chart-4: #a8b2d1;
-  --chart-5: #495670;
-  --radius: 0.75rem;
-  --sidebar: #0a192f;
-  --sidebar-foreground: #ccd6f6;
-  --sidebar-primary: #64ffda;
-  --sidebar-primary-foreground: #0a192f;
-  --sidebar-accent: #1d3461;
-  --sidebar-accent-foreground: #ccd6f6;
-  --sidebar-border: #233554;
-  --sidebar-ring: #64ffda;
+  /* ALBM Trading Ultra-Minimalist Theme - Black & White */
+  --background: #FFFFFF;
+  --foreground: #111111;
+  --card: #FFFFFF;
+  --card-foreground: #111111;
+  --popover: #FFFFFF;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F5;
+  --secondary-foreground: #111111;
+  --muted: #F5F5F5;
+  --muted-foreground: #777777;
+  --accent: #111111;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #F5F5F5;
+  --ring: #111111;
+  --chart-1: #111111;
+  --chart-2: #777777;
+  --chart-3: #AAAAAA;
+  --chart-4: #DDDDDD;
+  --chart-5: #F5F5F5;
+  --radius: 0px;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #111111;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #111111;
   
   /* Custom ALBM colors */
-  --navy: #0a192f;
-  --navy-light: #112240;
-  --slate: #8892b0;
-  --silver: #ccd6f6;
-  --silver-light: #e6f1ff;
-  --teal: #64ffda;
+  --white: #FFFFFF;
+  --black: #111111;
+  --slate: #777777;
+  --light-gray: #F5F5F5;
+  --border-light: #E5E5E5;
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Playfair Display Fallback', Georgia, serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -75,10 +75,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -87,12 +87,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
+  --color-white: var(--white);
+  --color-black: var(--black);
   --color-slate: var(--slate);
-  --color-silver: var(--silver);
-  --color-silver-light: var(--silver-light);
-  --color-teal: var(--teal);
+  --color-light-gray: var(--light-gray);
+  --color-border-light: var(--border-light);
 }
 
 @layer base {
@@ -104,20 +103,31 @@
   }
 }
 
-/* Custom scrollbar for dark theme */
+/* Custom scrollbar for light theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy);
+  background: var(--white);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--slate);
-  border-radius: 4px;
+  background: var(--border-light);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--silver);
+  background: var(--slate);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--black);
+  color: var(--white);
 }

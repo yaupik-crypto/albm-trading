@@ -1,20 +1,24 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import { PedigreeSection } from "@/components/pedigree-section"
+import { PhilosophySection } from "@/components/philosophy-section"
 import { CompetenciesSection } from "@/components/competencies-section"
-import { ComplianceSection } from "@/components/compliance-section"
+import { PrivacySection } from "@/components/privacy-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a192f]">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <section id="about" className="scroll-mt-20">
-        <PedigreeSection />
+      <section id="philosophy" className="scroll-mt-20">
+        <PhilosophySection />
       </section>
-      <CompetenciesSection />
-      <ComplianceSection />
+      <section id="competencies" className="scroll-mt-20">
+        <CompetenciesSection />
+      </section>
+      <section id="privacy" className="scroll-mt-20">
+        <PrivacySection />
+      </section>
       <Footer />
     </main>
   )

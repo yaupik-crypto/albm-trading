@@ -1,21 +1,21 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const geistSans = Geist({ 
+const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-sans'
 })
 
-const geistMono = Geist_Mono({ 
+const playfair = Playfair_Display({ 
   subsets: ["latin"],
-  variable: '--font-mono'
+  variable: '--font-serif'
 })
 
 export const metadata: Metadata = {
-  title: 'ALBM Trading | 寰宇貿易 定義新章',
-  description: 'Global Trade, Redefined through Precision and Integrity. 精準、誠信、卓越。Premier sourcing, cold-chain logistics, and Greater China/ASEAN gateway services.',
+  title: 'ALBM Trading | Global Trade, Redefined',
+  description: 'Global Trade, Redefined through Precision and Integrity. 寰宇貿易，定義新章：精準、誠信、卓越。Premier sourcing, cold-chain logistics, and Greater China/ASEAN gateway services.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a192f',
+  themeColor: '#FFFFFF',
 }
 
 export default function RootLayout({
@@ -47,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

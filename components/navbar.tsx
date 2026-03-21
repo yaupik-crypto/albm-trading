@@ -4,14 +4,12 @@ import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "#about", labelEn: "About", labelZh: "關於我們" },
-  { href: "#ecosystem", labelEn: "Ecosystem", labelZh: "生態系統" },
-  { href: "#competencies", labelEn: "Competencies", labelZh: "核心能力" },
-  { href: "#standards", labelEn: "Standards", labelZh: "標準" },
+  { href: "#philosophy", label: "Philosophy" },
+  { href: "#ecosystem", label: "Ecosystem" },
+  { href: "#competencies", label: "Competencies" },
+  { href: "#contact", label: "Contact" },
 ]
 
 export function Navbar() {
@@ -21,46 +19,50 @@ export function Navbar() {
     <motion.header 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0a192f]/90 backdrop-blur-xl border-b border-[#233554]/50"
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-4 group">
             <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-4"
             >
-              <div className="w-10 h-10 bg-[#ccd6f6] rounded-lg flex items-center justify-center">
-                <span className="text-[#0a192f] font-bold text-lg">A</span>
+              {/* ALBM Monogram */}
+              <div className="w-12 h-12 border border-foreground flex items-center justify-center">
+                <span className="text-foreground font-serif text-xl font-medium tracking-tight">
+                  A
+                </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-semibold tracking-tight text-[#ccd6f6]">
+                <span className="text-sm font-medium tracking-[0.2em] text-foreground uppercase">
                   ALBM Trading
                 </span>
-                <span className="text-[10px] text-[#8892b0] tracking-wider">
-                  再進一步
+                <span className="text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
+                  A Little Bit More
                 </span>
               </div>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-12">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.4 }}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
               >
                 <Link
                   href={link.href}
-                  className="group relative text-sm font-medium text-[#8892b0] hover:text-[#ccd6f6] transition-colors"
+                  className="group relative text-xs font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
                 >
-                  <span>{link.labelEn}</span>
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#64ffda] group-hover:w-full transition-all duration-300" />
+                  <span>{link.label}</span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-500" />
                 </Link>
               </motion.div>
             ))}
@@ -71,28 +73,26 @@ export function Navbar() {
             className="hidden lg:block"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.6 }}
           >
-            <Button 
-              className="bg-transparent border border-[#64ffda] text-[#64ffda] hover:bg-[#64ffda]/10 px-6 rounded-lg font-medium"
-              asChild
+            <Link 
+              href="#contact"
+              className="text-xs font-medium tracking-[0.15em] text-foreground hover:text-muted-foreground transition-colors duration-300 uppercase border-b border-foreground pb-1"
             >
-              <Link href="#contact">
-                Contact | 聯絡
-              </Link>
-            </Button>
+              Inquire
+            </Link>
           </motion.div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 -mr-2 text-[#ccd6f6]"
+            className="lg:hidden p-2 -mr-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             )}
           </button>
         </div>
@@ -104,10 +104,10 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="flex flex-col gap-4 py-6 border-t border-[#233554]/50">
+              <div className="flex flex-col gap-6 py-8 border-t border-border">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -117,22 +117,27 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between text-[#8892b0] hover:text-[#ccd6f6] transition-colors py-2"
+                      className="text-sm font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
                       onClick={() => setIsOpen(false)}
                     >
-                      <span className="font-medium">{link.labelEn}</span>
-                      <span className="text-sm">{link.labelZh}</span>
+                      {link.label}
                     </Link>
                   </motion.div>
                 ))}
-                <Button 
-                  className="bg-transparent border border-[#64ffda] text-[#64ffda] hover:bg-[#64ffda]/10 w-full mt-4 rounded-lg"
-                  asChild
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25 }}
+                  className="pt-4 border-t border-border"
                 >
-                  <Link href="#contact" onClick={() => setIsOpen(false)}>
-                    Contact | 聯絡
+                  <Link 
+                    href="#contact" 
+                    onClick={() => setIsOpen(false)}
+                    className="text-sm font-medium tracking-[0.15em] text-foreground uppercase"
+                  >
+                    Inquire
                   </Link>
-                </Button>
+                </motion.div>
               </div>
             </motion.div>
           )}

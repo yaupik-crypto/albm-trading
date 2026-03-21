@@ -3,170 +3,131 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight, Mail, MapPin } from "lucide-react"
-
-const footerLinks = {
-  company: [
-    { labelEn: "About Us", labelZh: "關於我們", href: "#about" },
-    { labelEn: "Ecosystem", labelZh: "生態系統", href: "#ecosystem" },
-    { labelEn: "Competencies", labelZh: "核心能力", href: "#competencies" },
-    { labelEn: "Standards", labelZh: "標準", href: "#standards" },
-  ],
-  services: [
-    { labelEn: "Multi-Vertical Sourcing", labelZh: "多維度採購", href: "#competencies" },
-    { labelEn: "Cold-Chain Logistics", labelZh: "冷鏈物流", href: "#competencies" },
-    { labelEn: "Market Entry", labelZh: "市場進入", href: "#competencies" },
-    { labelEn: "Trade Consulting", labelZh: "貿易諮詢", href: "#contact" },
-  ],
-}
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-[#112240] border-t border-[#233554]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="py-16 lg:py-24 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ccd6f6] mb-4">
+    <footer id="contact" className="bg-foreground text-primary-foreground">
+      {/* CTA Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="py-24 lg:py-32 text-center border-b border-primary-foreground/10"
+      >
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <span className="text-xs tracking-[0.3em] text-primary-foreground/60 uppercase mb-8 block">
+            Get in Touch
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-primary-foreground mb-6 leading-tight text-balance">
             Ready to Redefine Trade?
           </h2>
-          <p className="text-xl text-[#8892b0] mb-2">準備好重新定義貿易了嗎？</p>
-          <p className="text-lg text-[#8892b0]/70 max-w-2xl mx-auto mb-10">
-            Connect with our team to explore how ALBM Trading can support your 
-            cross-border commerce objectives.
+          <p className="text-sm tracking-[0.15em] text-primary-foreground/60 mb-4">
+            準備好重新定義貿易了嗎？
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              size="lg"
-              className="bg-[#64ffda] text-[#0a192f] hover:bg-[#64ffda]/90 px-8 h-14 text-base font-semibold rounded-lg group"
-              asChild
-            >
-              <a href="mailto:info@albmtrading.com">
-                <Mail className="w-5 h-5 mr-2" />
-                Contact Us | 聯絡我們
-                <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </Button>
-          </div>
-        </motion.div>
+          <p className="text-base text-primary-foreground/80 max-w-xl mx-auto mb-12 leading-relaxed">
+            Connect with our team to explore how ALBM Trading can support your cross-border commerce objectives.
+          </p>
+          <a 
+            href="mailto:info@albmtrading.com"
+            className="inline-block text-sm tracking-[0.15em] text-primary-foreground border-b border-primary-foreground pb-1 hover:text-primary-foreground/70 hover:border-primary-foreground/70 transition-colors duration-300 uppercase"
+          >
+            info@albmtrading.com
+          </a>
+        </div>
+      </motion.div>
 
-        <Separator className="bg-[#233554]" />
-
-        {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid lg:grid-cols-4 gap-12 lg:gap-8">
+      {/* Main Footer Content */}
+      <div className="py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand Column */}
-            <div className="lg:col-span-1">
-              <Link href="/" className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-[#ccd6f6] rounded-lg flex items-center justify-center">
-                  <span className="text-[#0a192f] font-bold text-lg">A</span>
+            <div className="lg:col-span-5">
+              <Link href="/" className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 border border-primary-foreground flex items-center justify-center">
+                  <span className="text-primary-foreground font-serif text-xl font-medium">
+                    A
+                  </span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base font-semibold text-[#ccd6f6]">
+                  <span className="text-sm font-medium tracking-[0.2em] text-primary-foreground uppercase">
                     ALBM Trading
                   </span>
-                  <span className="text-[10px] text-[#8892b0]">
+                  <span className="text-[10px] tracking-[0.15em] text-primary-foreground/60 uppercase">
                     A Little Bit More Trading Limited
                   </span>
                 </div>
               </Link>
-              <p className="text-[#8892b0] text-sm leading-relaxed mb-6">
+              <p className="text-sm text-primary-foreground/70 leading-relaxed max-w-sm">
                 Your trusted partner for global trade solutions across Greater China and ASEAN markets.
               </p>
-              <p className="text-[#8892b0]/60 text-sm leading-relaxed mb-6">
+              <p className="text-xs text-primary-foreground/50 leading-relaxed mt-3">
                 您在大中華及東盟市場的可靠全球貿易夥伴。
               </p>
-              <div className="flex items-start gap-3 text-sm text-[#8892b0]">
-                <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#64ffda]" />
-                <div>
-                  <p>Hong Kong SAR</p>
-                  <p className="text-[#8892b0]/60">香港特別行政區</p>
+            </div>
+
+            {/* Address Column - Business Card Style */}
+            <div className="lg:col-span-4">
+              <div className="border border-primary-foreground/20 p-8">
+                <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
+                  Headquarters
+                </span>
+                <div className="space-y-2">
+                  <p className="text-sm text-primary-foreground">Kwun Tong</p>
+                  <p className="text-sm text-primary-foreground">Kowloon, Hong Kong SAR</p>
+                  <p className="text-xs text-primary-foreground/50 mt-4">香港特別行政區 九龍 觀塘</p>
                 </div>
               </div>
             </div>
 
-            {/* Links Columns */}
-            <div>
-              <h4 className="font-semibold text-sm uppercase tracking-wider text-[#ccd6f6] mb-6">
-                Company <span className="text-[#8892b0]/60 normal-case">| 公司</span>
-              </h4>
-              <ul className="space-y-4">
-                {footerLinks.company.map((link) => (
-                  <li key={link.labelEn}>
-                    <Link 
-                      href={link.href}
-                      className="group flex items-center gap-2 text-sm text-[#8892b0] hover:text-[#64ffda] transition-colors"
-                    >
-                      <span>{link.labelEn}</span>
-                      <span className="text-[#8892b0]/40 group-hover:text-[#64ffda]/60">{link.labelZh}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-sm uppercase tracking-wider text-[#ccd6f6] mb-6">
-                Services <span className="text-[#8892b0]/60 normal-case">| 服務</span>
-              </h4>
-              <ul className="space-y-4">
-                {footerLinks.services.map((link) => (
-                  <li key={link.labelEn}>
-                    <Link 
-                      href={link.href}
-                      className="group flex items-center gap-2 text-sm text-[#8892b0] hover:text-[#64ffda] transition-colors"
-                    >
-                      <span>{link.labelEn}</span>
-                      <span className="text-[#8892b0]/40 group-hover:text-[#64ffda]/60">{link.labelZh}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Card */}
-            <div>
-              <div className="p-6 rounded-2xl border border-[#233554] bg-[#0a192f]/50">
-                <h4 className="font-semibold text-[#ccd6f6] mb-2">Get in Touch</h4>
-                <p className="text-sm text-[#8892b0]/60 mb-4">聯絡我們</p>
-                <a 
-                  href="mailto:info@albmtrading.com"
-                  className="flex items-center gap-2 text-[#64ffda] hover:text-[#64ffda]/80 transition-colors text-sm font-medium"
+            {/* Navigation Column */}
+            <div className="lg:col-span-3">
+              <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
+                Navigation
+              </span>
+              <nav className="space-y-4">
+                <Link 
+                  href="#philosophy"
+                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                 >
-                  <Mail className="w-4 h-4" />
-                  info@albmtrading.com
-                </a>
-              </div>
+                  Philosophy
+                </Link>
+                <Link 
+                  href="#ecosystem"
+                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                >
+                  Ecosystem
+                </Link>
+                <Link 
+                  href="#competencies"
+                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                >
+                  Competencies
+                </Link>
+                <Link 
+                  href="#privacy"
+                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                >
+                  Privacy Policy
+                </Link>
+              </nav>
             </div>
           </div>
         </div>
+      </div>
 
-        <Separator className="bg-[#233554]" />
+      <Separator className="bg-primary-foreground/10" />
 
-        {/* Bottom Bar */}
-        <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-[#8892b0]/60">
-            &copy; {new Date().getFullYear()} A Little Bit More Trading Limited. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <Link 
-              href="#" 
-              className="text-sm text-[#8892b0]/60 hover:text-[#64ffda] transition-colors"
-            >
-              Privacy Policy | 私隱政策
-            </Link>
-            <Link 
-              href="#" 
-              className="text-sm text-[#8892b0]/60 hover:text-[#64ffda] transition-colors"
-            >
-              Terms | 條款
-            </Link>
+      {/* Bottom Bar */}
+      <div className="py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-primary-foreground/50 tracking-wide">
+              &copy; {new Date().getFullYear()} A Little Bit More Trading Limited. All rights reserved.
+            </p>
+            <p className="text-xs text-primary-foreground/40 tracking-wide">
+              Hong Kong SAR
+            </p>
           </div>
         </div>
       </div>
