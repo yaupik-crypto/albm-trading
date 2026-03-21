@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "#ecosystem", label: "Ecosystem" },
-  { href: "#competencies", label: "Competencies" },
-  { href: "#privacy", label: "Privacy" },
+  { href: "#sourcing", label: "Sourcing" },
+  { href: "#logistics", label: "Logistics" },
+  { href: "#gateway", label: "Gateway" },
+  { href: "#integrity", label: "Integrity" },
   { href: "#contact", label: "Contact" },
 ]
 
@@ -24,21 +25,38 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo */}
+          {/* Logo - Geometric ALBM Shield */}
           <Link href="/" className="flex items-center gap-4 group">
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="flex items-center gap-4"
             >
-              {/* ALBM Monogram */}
-              <div className="w-12 h-12 border border-foreground flex items-center justify-center">
-                <span className="text-foreground font-serif text-xl font-medium tracking-tight">
-                  A
-                </span>
+              {/* Shield Monogram */}
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  {/* Shield shape */}
+                  <path 
+                    d="M24 4L8 12v12c0 11 16 18 16 18s16-7 16-18V12L24 4z" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="1"
+                    className="text-foreground group-hover:text-[#A0A0A0] transition-colors duration-300"
+                  />
+                  {/* A letter */}
+                  <text 
+                    x="24" 
+                    y="30" 
+                    textAnchor="middle" 
+                    className="font-serif text-xl fill-current text-foreground group-hover:text-[#A0A0A0] transition-colors duration-300"
+                    style={{ fontSize: '18px' }}
+                  >
+                    A
+                  </text>
+                </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-medium tracking-[0.2em] text-foreground uppercase">
+                <span className="text-sm font-medium tracking-[0.2em] text-foreground uppercase group-hover:text-[#A0A0A0] transition-colors duration-300">
                   ALBM Trading
                 </span>
                 <span className="text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
@@ -49,7 +67,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -59,16 +77,16 @@ export function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="group relative text-xs font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
+                  className="group relative text-xs font-medium tracking-[0.15em] text-muted-foreground hover:text-[#A0A0A0] transition-colors duration-300 uppercase"
                 >
                   <span>{link.label}</span>
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-500" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#A0A0A0] group-hover:w-full transition-all duration-500" />
                 </Link>
               </motion.div>
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Minimal border style */}
           <motion.div 
             className="hidden lg:block"
             initial={{ opacity: 0 }}
@@ -77,7 +95,7 @@ export function Navbar() {
           >
             <Link 
               href="#contact"
-              className="text-xs font-medium tracking-[0.15em] text-foreground hover:text-muted-foreground transition-colors duration-300 uppercase border-b border-foreground pb-1"
+              className="text-xs font-medium tracking-[0.15em] text-foreground hover:text-[#A0A0A0] hover:border-[#A0A0A0] transition-colors duration-300 uppercase border border-foreground px-6 py-3"
             >
               Inquire
             </Link>
@@ -117,7 +135,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="text-sm font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
+                      className="text-sm font-medium tracking-[0.15em] text-muted-foreground hover:text-[#A0A0A0] transition-colors uppercase"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.label}
@@ -127,13 +145,13 @@ export function Navbar() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.25 }}
+                  transition={{ delay: 0.3 }}
                   className="pt-4 border-t border-border"
                 >
                   <Link 
                     href="#contact" 
                     onClick={() => setIsOpen(false)}
-                    className="text-sm font-medium tracking-[0.15em] text-foreground uppercase"
+                    className="inline-block text-sm font-medium tracking-[0.15em] text-foreground border border-foreground px-6 py-3 uppercase"
                   >
                     Inquire
                   </Link>

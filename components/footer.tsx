@@ -30,9 +30,9 @@ export function Footer() {
           </p>
           <a 
             href="mailto:info@albmtrading.com"
-            className="inline-block text-sm tracking-[0.15em] text-primary-foreground border-b border-primary-foreground pb-1 hover:text-primary-foreground/70 hover:border-primary-foreground/70 transition-colors duration-300 uppercase"
+            className="inline-block text-sm tracking-[0.15em] text-primary-foreground border border-primary-foreground px-8 py-4 hover:bg-primary-foreground hover:text-foreground transition-colors duration-300 uppercase"
           >
-            info@albmtrading.com
+            Inquire Now
           </a>
         </div>
       </motion.div>
@@ -42,12 +42,28 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand Column */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 border border-primary-foreground flex items-center justify-center">
-                  <span className="text-primary-foreground font-serif text-xl font-medium">
-                    A
-                  </span>
+                {/* Shield Monogram */}
+                <div className="relative w-12 h-12 flex items-center justify-center">
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <path 
+                      d="M24 4L8 12v12c0 11 16 18 16 18s16-7 16-18V12L24 4z" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="1"
+                      className="text-primary-foreground"
+                    />
+                    <text 
+                      x="24" 
+                      y="30" 
+                      textAnchor="middle" 
+                      className="font-serif fill-current text-primary-foreground"
+                      style={{ fontSize: '18px' }}
+                    >
+                      A
+                    </text>
+                  </svg>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-medium tracking-[0.2em] text-primary-foreground uppercase">
@@ -83,37 +99,62 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Navigation Column */}
-            <div className="lg:col-span-3">
-              <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
-                Navigation
-              </span>
-              <nav className="space-y-4">
-                <Link 
-                  href="#ecosystem"
-                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
-                >
-                  Ecosystem
-                </Link>
-                <Link 
-                  href="#competencies"
-                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
-                >
-                  Competencies
-                </Link>
-                <Link 
-                  href="#privacy"
-                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
-                >
-                  Privacy Policy
-                </Link>
-                <Link 
-                  href="#contact"
-                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
-                >
-                  Contact
-                </Link>
-              </nav>
+            {/* Contact & Navigation Column */}
+            <div className="lg:col-span-4">
+              <div className="grid grid-cols-2 gap-8">
+                {/* Emails */}
+                <div>
+                  <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
+                    Contact
+                  </span>
+                  <div className="space-y-3">
+                    <a 
+                      href="mailto:info@albmtrading.com"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      info@albmtrading.com
+                    </a>
+                    <a 
+                      href="mailto:logistics@albmtrading.com"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      logistics@albmtrading.com
+                    </a>
+                    <a 
+                      href="mailto:admin@albmtrading.com"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      admin@albmtrading.com
+                    </a>
+                  </div>
+                </div>
+                {/* Navigation */}
+                <div>
+                  <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
+                    Navigation
+                  </span>
+                  <nav className="space-y-3">
+                    <Link 
+                      href="#ecosystem"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      Ecosystem
+                    </Link>
+                    <Link 
+                      href="#competencies"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      Competencies
+                    </Link>
+                    <Link 
+                      href="#integrity"
+                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                    >
+                      Integrity
+                    </Link>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -121,15 +162,22 @@ export function Footer() {
 
       <Separator className="bg-primary-foreground/10" />
 
-      {/* Bottom Bar */}
+      {/* Bottom Bar with ESG Statement */}
       <div className="py-8">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-primary-foreground/50 tracking-wide">
-              &copy; {new Date().getFullYear()} A Little Bit More Trading Limited. All rights reserved.
-            </p>
-            <p className="text-xs text-primary-foreground/40 tracking-wide">
-              Hong Kong SAR
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+              <p className="text-xs text-primary-foreground/50 tracking-wide">
+                &copy; {new Date().getFullYear()} A Little Bit More Trading Limited. All rights reserved.
+              </p>
+              <span className="hidden sm:block text-primary-foreground/20">|</span>
+              <p className="text-xs text-primary-foreground/40 tracking-wide">
+                Hong Kong SAR
+              </p>
+            </div>
+            {/* ESG Statement */}
+            <p className="text-xs text-primary-foreground/40 tracking-wide text-center lg:text-right max-w-md">
+              Committed to sustainable supply chain practices and responsible corporate governance.
             </p>
           </div>
         </div>
