@@ -6,11 +6,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
+  { href: "#ecosystem", label: "Ecosystem" },
   { href: "#sourcing", label: "Sourcing" },
   { href: "#logistics", label: "Logistics" },
   { href: "#gateway", label: "Gateway" },
   { href: "#integrity", label: "Integrity" },
-  { href: "#contact", label: "Contact" },
 ]
 
 export function Navbar() {

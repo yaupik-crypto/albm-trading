@@ -2,22 +2,25 @@
 
 import { motion } from "framer-motion"
 
-// Hub locations (approximate positions on a simplified world map)
+// Updated Hub locations per spec: Thailand, Singapore, Macau, HK, Taiwan, Shenzhen
+// Removed Shanghai, added Thailand and Taiwan
 const hubs = [
-  { id: "hk", name: "Hong Kong", nameZh: "香港", label: "HQ", x: 78, y: 52 },
-  { id: "sh", name: "Shanghai", nameZh: "上海", label: "SH", x: 80, y: 45 },
-  { id: "sz", name: "Shenzhen", nameZh: "深圳", label: "SZ", x: 77, y: 53 },
-  { id: "sg", name: "Singapore", nameZh: "新加坡", label: "SG", x: 75, y: 62 },
+  { id: "hk", name: "Hong Kong", nameZh: "香港", code: "HK", label: "HQ Operations Base", labelZh: "HQ 營運基地", x: 78, y: 52, isHQ: true },
+  { id: "sz", name: "Shenzhen", nameZh: "深圳", code: "SZ", label: "Active Trading Node", labelZh: "活躍貿易節點", x: 77, y: 50, isHQ: false },
+  { id: "tw", name: "Taiwan", nameZh: "台灣", code: "TW", label: "Active Trading Node", labelZh: "活躍貿易節點", x: 82, y: 46, isHQ: false },
+  { id: "mo", name: "Macau", nameZh: "澳門", code: "MO", label: "Active Trading Node", labelZh: "活躍貿易節點", x: 76, y: 52, isHQ: false },
+  { id: "th", name: "Thailand", nameZh: "泰國", code: "TH", label: "Active Trading Node", labelZh: "活躍貿易節點", x: 70, y: 55, isHQ: false },
+  { id: "sg", name: "Singapore", nameZh: "新加坡", code: "SG", label: "Active Trading Node", labelZh: "活躍貿易節點", x: 73, y: 64, isHQ: false },
 ]
 
-// Pulse animation
+// Slow, smooth pulse animation
 const pulseVariants = {
   initial: { scale: 1, opacity: 0.6 },
   animate: {
-    scale: [1, 1.8, 1],
+    scale: [1, 2, 1],
     opacity: [0.6, 0, 0.6],
     transition: {
-      duration: 2.5,
+      duration: 3,
       repeat: Infinity,
       ease: "easeInOut",
     },
@@ -26,7 +29,7 @@ const pulseVariants = {
 
 export function MapSection() {
   return (
-    <section className="py-24 lg:py-32 bg-background border-t border-border">
+    <section className="py-32 lg:py-40 bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -34,16 +37,16 @@ export function MapSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-16 lg:mb-24"
         >
           <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase mb-6 block">
             Network
           </span>
           <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-normal tracking-tight text-foreground leading-tight">
-            Regional Presence
+            Our Trading Footprint
           </h2>
           <p className="text-sm tracking-[0.15em] text-muted-foreground mt-4">
-            區域業務據點
+            Active Sourcing & Distribution Markets
           </p>
         </motion.div>
 
@@ -53,10 +56,10 @@ export function MapSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-5xl mx-auto"
         >
           <svg
-            viewBox="0 0 100 60"
+            viewBox="0 0 100 75"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -70,89 +73,112 @@ export function MapSection() {
             
             {/* Abstract continental shapes - Asia focus */}
             <path
-              d="M60 15 L85 12 L90 20 L92 35 L88 45 L82 48 L75 52 L70 55 L65 53 L60 48 L55 45 L50 40 L48 30 L50 20 L55 15 Z"
-              fill="url(#mapGradient)"
-              stroke="#E5E5E5"
-              strokeWidth="0.3"
-              opacity="0.7"
-            />
-            
-            {/* Southeast Asia */}
-            <path
-              d="M68 50 L72 52 L75 58 L78 60 L72 60 L68 56 Z"
+              d="M55 10 L90 8 L95 18 L94 32 L90 42 L85 48 L78 54 L72 58 L65 56 L58 50 L52 44 L48 35 L47 25 L50 15 Z"
               fill="url(#mapGradient)"
               stroke="#E5E5E5"
               strokeWidth="0.3"
               opacity="0.6"
             />
+            
+            {/* Southeast Asia / Malaysia / Indonesia */}
+            <path
+              d="M65 54 L72 56 L78 62 L82 68 L75 70 L68 65 L62 58 Z"
+              fill="url(#mapGradient)"
+              stroke="#E5E5E5"
+              strokeWidth="0.3"
+              opacity="0.5"
+            />
 
-            {/* Connection lines between hubs */}
-            <g stroke="#D4C4A8" strokeWidth="0.2" strokeDasharray="1,1" opacity="0.4">
-              <line x1="78" y1="52" x2="80" y2="45" /> {/* HK to SH */}
-              <line x1="78" y1="52" x2="77" y2="53" /> {/* HK to SZ */}
-              <line x1="78" y1="52" x2="75" y2="62" /> {/* HK to SG */}
+            {/* Taiwan */}
+            <ellipse cx="82" cy="46" rx="2" ry="3" fill="url(#mapGradient)" stroke="#E5E5E5" strokeWidth="0.2" opacity="0.7" />
+
+            {/* Connection lines between hubs - all connect to HK */}
+            <g stroke="#D4C4A8" strokeWidth="0.15" strokeDasharray="0.8,0.8" opacity="0.5">
+              <line x1="78" y1="52" x2="77" y2="50" /> {/* HK to SZ */}
+              <line x1="78" y1="52" x2="82" y2="46" /> {/* HK to TW */}
+              <line x1="78" y1="52" x2="76" y2="52" /> {/* HK to MO */}
+              <line x1="78" y1="52" x2="70" y2="55" /> {/* HK to TH */}
+              <line x1="78" y1="52" x2="73" y2="64" /> {/* HK to SG */}
             </g>
 
-            {/* Hub markers with pulse effect */}
+            {/* Hub markers with slow pulse effect */}
             {hubs.map((hub, index) => (
               <g key={hub.id}>
-                {/* Pulse ring */}
+                {/* Outer pulse ring */}
                 <motion.circle
                   cx={hub.x}
                   cy={hub.y}
-                  r="2"
+                  r={hub.isHQ ? "2.5" : "1.8"}
                   fill="none"
-                  stroke={hub.id === "hk" ? "#D4C4A8" : "#A0A0A0"}
-                  strokeWidth="0.3"
+                  stroke={hub.isHQ ? "#D4C4A8" : "#A0A0A0"}
+                  strokeWidth="0.2"
                   variants={pulseVariants}
                   initial="initial"
                   animate="animate"
-                  style={{ animationDelay: `${index * 0.5}s` }}
+                  style={{ animationDelay: `${index * 0.4}s` }}
                 />
                 {/* Static dot */}
                 <circle
                   cx={hub.x}
                   cy={hub.y}
-                  r={hub.id === "hk" ? "1.2" : "0.8"}
-                  fill={hub.id === "hk" ? "#D4C4A8" : "#A0A0A0"}
+                  r={hub.isHQ ? "1.2" : "0.7"}
+                  fill={hub.isHQ ? "#D4C4A8" : "#A0A0A0"}
                 />
-                {/* Label */}
-                <text
-                  x={hub.x}
-                  y={hub.y - 3}
-                  textAnchor="middle"
-                  className="text-[2.5px] fill-current text-muted-foreground"
-                  style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.5px' }}
-                >
-                  {hub.label}
-                </text>
+                {/* Label - only show for HK */}
+                {hub.isHQ && (
+                  <text
+                    x={hub.x}
+                    y={hub.y - 4}
+                    textAnchor="middle"
+                    className="fill-current text-[#D4C4A8]"
+                    style={{ fontSize: '2.2px', fontFamily: 'Inter, sans-serif', letterSpacing: '0.3px', fontWeight: 500 }}
+                  >
+                    HQ
+                  </text>
+                )}
               </g>
             ))}
           </svg>
 
-          {/* Hub Legend */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-            {hubs.map((hub, index) => (
-              <motion.div
-                key={hub.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="text-center"
-              >
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div 
-                    className={`w-2 h-2 rounded-full ${hub.id === "hk" ? "bg-[#D4C4A8]" : "bg-[#A0A0A0]"}`} 
-                  />
-                  <span className="text-xs font-medium tracking-[0.1em] text-foreground uppercase">
-                    {hub.label}
-                  </span>
-                </div>
-                <p className="text-sm text-foreground">{hub.name}</p>
-                <p className="text-xs text-muted-foreground">{hub.nameZh}</p>
-              </motion.div>
-            ))}
+          {/* Network statement */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center text-sm text-muted-foreground max-w-2xl mx-auto mt-12 leading-relaxed"
+          >
+            Our network ensures efficient sourcing and distribution across these active trade nodes without explicit physical offices.
+          </motion.p>
+
+          {/* Hub Legend - Listed below map */}
+          <div className="mt-16 border-t border-border pt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+              {hubs.map((hub, index) => (
+                <motion.div
+                  key={hub.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
+                  className="text-center"
+                >
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <div 
+                      className={`w-2 h-2 rounded-full ${hub.isHQ ? "bg-[#D4C4A8]" : "bg-[#A0A0A0]"}`} 
+                    />
+                    <span className={`text-xs font-medium tracking-[0.1em] uppercase ${hub.isHQ ? "text-[#D4C4A8]" : "text-foreground"}`}>
+                      {hub.code}
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground">{hub.name}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{hub.nameZh}</p>
+                  <p className="text-[10px] text-muted-foreground/60 mt-2 tracking-wide">
+                    {hub.isHQ ? "HQ Base Operations" : "Active Node"}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

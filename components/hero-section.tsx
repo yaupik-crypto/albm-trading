@@ -108,6 +108,29 @@ export function HeroSection() {
               連接全球優質生產商與大中華及東盟市場
             </p>
           </motion.div>
+
+          {/* Explore Ecosystem Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.8 }}
+            className="mt-16"
+          >
+            <a 
+              href="#ecosystem"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.2em] text-white/60 hover:text-[#D4C4A8] transition-colors duration-300 uppercase group"
+            >
+              <span>Explore Our Ecosystem</span>
+              <svg 
+                className="w-4 h-4 transform group-hover:translate-y-1 transition-transform duration-300" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
+          </motion.div>
         </div>
       </div>
 
