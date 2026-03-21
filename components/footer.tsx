@@ -20,10 +20,10 @@ export function Footer() {
             Get in Touch
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-primary-foreground mb-6 leading-tight text-balance">
-            Ready to Redefine Trade?
+            Connect With Us
           </h2>
           <p className="text-sm tracking-[0.15em] text-primary-foreground/60 mb-4">
-            準備好重新定義貿易了嗎？
+            聯繫我們
           </p>
           <p className="text-base text-primary-foreground/80 max-w-xl mx-auto mb-12 leading-relaxed">
             Connect with our team to explore how ALBM Trading can support your cross-border commerce objectives.
@@ -37,7 +37,7 @@ export function Footer() {
         </div>
       </motion.div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer Content - Business Card Layout */}
       <div className="py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
@@ -51,9 +51,9 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-medium tracking-[0.2em] text-primary-foreground uppercase">
-                    ALBM Trading
+                    ALBM
                   </span>
-                  <span className="text-[10px] tracking-[0.15em] text-primary-foreground/60 uppercase">
+                  <span className="text-[10px] tracking-[0.1em] text-primary-foreground/60 uppercase">
                     A Little Bit More Trading Limited
                   </span>
                 </div>
@@ -72,11 +72,14 @@ export function Footer() {
                 <span className="text-xs tracking-[0.2em] text-primary-foreground/50 uppercase block mb-6">
                   Headquarters
                 </span>
-                <div className="space-y-2">
-                  <p className="text-sm text-primary-foreground">Kwun Tong</p>
-                  <p className="text-sm text-primary-foreground">Kowloon, Hong Kong SAR</p>
-                  <p className="text-xs text-primary-foreground/50 mt-4">香港特別行政區 九龍 觀塘</p>
-                </div>
+                <address className="not-italic space-y-1">
+                  <p className="text-sm text-primary-foreground">Unit 1001, World Interests Building</p>
+                  <p className="text-sm text-primary-foreground">8 Tsun Yip Lane</p>
+                  <p className="text-sm text-primary-foreground">Kwun Tong, Hong Kong</p>
+                </address>
+                <p className="text-xs text-primary-foreground/50 mt-6">
+                  香港觀塘駿業里8號世興工業大廈1001室
+                </p>
               </div>
             </div>
 
@@ -86,12 +89,6 @@ export function Footer() {
                 Navigation
               </span>
               <nav className="space-y-4">
-                <Link 
-                  href="#philosophy"
-                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
-                >
-                  Philosophy
-                </Link>
                 <Link 
                   href="#ecosystem"
                   className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
@@ -109,6 +106,12 @@ export function Footer() {
                   className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                 >
                   Privacy Policy
+                </Link>
+                <Link 
+                  href="#contact"
+                  className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
+                >
+                  Contact
                 </Link>
               </nav>
             </div>

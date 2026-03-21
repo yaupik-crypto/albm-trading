@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import { PhilosophySection } from "@/components/philosophy-section"
+import { EcosystemSection } from "@/components/ecosystem-section"
 import { CompetenciesSection } from "@/components/competencies-section"
 import { PrivacySection } from "@/components/privacy-section"
 import { Footer } from "@/components/footer"
@@ -10,8 +10,8 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <section id="philosophy" className="scroll-mt-20">
-        <PhilosophySection />
+      <section id="ecosystem" className="scroll-mt-20">
+        <EcosystemSection />
       </section>
       <section id="competencies" className="scroll-mt-20">
         <CompetenciesSection />

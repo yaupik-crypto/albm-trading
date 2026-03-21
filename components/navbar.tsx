@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "#philosophy", label: "Philosophy" },
   { href: "#ecosystem", label: "Ecosystem" },
   { href: "#competencies", label: "Competencies" },
+  { href: "#privacy", label: "Privacy" },
   { href: "#contact", label: "Contact" },
 ]
 

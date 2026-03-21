@@ -1,25 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image - Luxury trade vessel at dusk */}
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2940&auto=format&fit=crop"
-          alt="Luxury cargo vessel at dusk"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Light overlay for readability */}
-        <div className="absolute inset-0 bg-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
-      </div>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Clean white background - no image for ultra-minimalist look */}
+      
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -28,10 +15,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="mb-8"
+            className="mb-10"
           >
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight text-foreground leading-[1.1] text-balance">
-              Global Trade, Redefined through Precision and Integrity
+              Global Sourcing & Supply Chain Excellence.
             </h1>
           </motion.div>
 
@@ -40,10 +27,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="mb-16"
+            className="mb-20"
           >
-            <p className="text-base md:text-lg tracking-[0.1em] text-muted-foreground uppercase">
-              Connecting dynamics across Greater China and ASEAN
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              A Little Bit More Trading Limited connects premium global producers with the Greater China and ASEAN markets.
             </p>
           </motion.div>
 
@@ -52,7 +39,7 @@ export function HeroSection() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-            className="w-24 h-px bg-foreground mx-auto mb-16"
+            className="w-24 h-px bg-foreground mx-auto mb-20"
           />
 
           {/* Chinese tagline */}
@@ -61,8 +48,8 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <p className="text-sm md:text-base tracking-[0.2em] text-muted-foreground">
-              寰宇貿易，定義新章
+            <p className="text-sm md:text-base tracking-[0.15em] text-muted-foreground">
+              連接全球優質生產商與大中華及東盟市場
             </p>
           </motion.div>
         </div>
