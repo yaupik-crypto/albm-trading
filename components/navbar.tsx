@@ -7,9 +7,8 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { href: "#ecosystem", label: "Ecosystem" },
-  { href: "#sourcing", label: "Sourcing" },
-  { href: "#logistics", label: "Logistics" },
-  { href: "#gateway", label: "Gateway" },
+  { href: "#competencies", label: "Competencies" },
+  { href: "#network", label: "Network" },
   { href: "#integrity", label: "Integrity" },
 ]
 
@@ -25,44 +24,29 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo - Geometric ALBM Shield */}
+          {/* CSS Typographic Logo - Metallic gradient text */}
           <Link href="/" className="flex items-center gap-4 group">
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="flex items-center gap-4"
             >
-              {/* Shield Monogram */}
-              <div className="relative w-12 h-12 flex items-center justify-center">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  {/* Shield shape */}
-                  <path 
-                    d="M24 4L8 12v12c0 11 16 18 16 18s16-7 16-18V12L24 4z" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="1"
-                    className="text-foreground group-hover:text-[#A0A0A0] transition-colors duration-300"
-                  />
-                  {/* A letter */}
-                  <text 
-                    x="24" 
-                    y="30" 
-                    textAnchor="middle" 
-                    className="font-serif text-xl fill-current text-foreground group-hover:text-[#A0A0A0] transition-colors duration-300"
-                    style={{ fontSize: '18px' }}
-                  >
-                    A
-                  </text>
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-medium tracking-[0.2em] text-foreground uppercase group-hover:text-[#A0A0A0] transition-colors duration-300">
-                  ALBM Trading
-                </span>
-                <span className="text-[10px] tracking-[0.15em] text-muted-foreground uppercase">
-                  A Little Bit More
-                </span>
-              </div>
+              {/* Metallic serif ALBM */}
+              <span 
+                className="font-serif text-2xl font-normal tracking-tight"
+                style={{
+                  background: 'linear-gradient(135deg, #888888 0%, #333333 50%, #666666 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                ALBM
+              </span>
+              {/* Tiny sans-serif descriptor */}
+              <span className="text-[9px] tracking-[0.2em] text-muted-foreground uppercase hidden sm:block">
+                A Little Bit More Trading
+              </span>
             </motion.div>
           </Link>
 
@@ -77,10 +61,10 @@ export function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="group relative text-xs font-medium tracking-[0.15em] text-muted-foreground hover:text-[#A0A0A0] transition-colors duration-300 uppercase"
+                  className="group relative text-xs font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 uppercase"
                 >
                   <span>{link.label}</span>
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#A0A0A0] group-hover:w-full transition-all duration-500" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-500" />
                 </Link>
               </motion.div>
             ))}
@@ -95,7 +79,7 @@ export function Navbar() {
           >
             <Link 
               href="#contact"
-              className="text-xs font-medium tracking-[0.15em] text-foreground hover:text-[#A0A0A0] hover:border-[#A0A0A0] transition-colors duration-300 uppercase border border-foreground px-6 py-3"
+              className="text-xs font-medium tracking-[0.15em] text-foreground hover:text-muted-foreground hover:border-muted-foreground transition-colors duration-300 uppercase border border-foreground px-6 py-3"
             >
               Inquire
             </Link>
@@ -135,7 +119,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="text-sm font-medium tracking-[0.15em] text-muted-foreground hover:text-[#A0A0A0] transition-colors uppercase"
+                      className="text-sm font-medium tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors uppercase"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.label}

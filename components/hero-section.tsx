@@ -36,23 +36,15 @@ const wordVariants = {
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Cinematic B&W Video Placeholder - Abstract trade logistics */}
+      {/* Cinematic Background Image - Dark shipping port */}
       <div className="absolute inset-0 z-0">
-        {/* Video placeholder with grayscale filter */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-10" />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover grayscale opacity-60"
-          poster="/hero-poster.jpg"
-        >
-          {/* Placeholder - would load actual video */}
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
-        {/* Fallback abstract pattern if no video */}
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,#111_25%,transparent_25%),linear-gradient(-45deg,#111_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#111_75%),linear-gradient(-45deg,transparent_75%,#111_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0px] opacity-10" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <img
+          src="https://images.unsplash.com/photo-1586528116311-ad8ed7f66963?auto=format&fit=crop&q=80&w=2000"
+          alt="Global shipping port at dusk"
+          className="absolute inset-0 w-full h-full object-cover grayscale"
+        />
       </div>
 
       {/* Content */}
@@ -118,7 +110,7 @@ export function HeroSection() {
           >
             <a 
               href="#ecosystem"
-              className="inline-flex items-center gap-3 text-xs tracking-[0.2em] text-white/60 hover:text-[#D4C4A8] transition-colors duration-300 uppercase group"
+              className="inline-flex items-center gap-3 text-xs tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-300 uppercase group"
             >
               <span>Explore Our Ecosystem</span>
               <svg 

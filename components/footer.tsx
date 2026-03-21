@@ -9,7 +9,7 @@ export function Footer() {
     <footer id="contact" className="bg-foreground text-primary-foreground">
       {/* CTA Section */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
@@ -38,41 +38,34 @@ export function Footer() {
       </motion.div>
 
       {/* Main Footer Content - Business Card Layout */}
-      <div className="py-16 lg:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="py-16 lg:py-20"
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
-            {/* Brand Column */}
+            {/* Brand Column - CSS Typographic Logo */}
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-4 mb-8">
-                {/* Shield Monogram */}
-                <div className="relative w-12 h-12 flex items-center justify-center">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                    <path 
-                      d="M24 4L8 12v12c0 11 16 18 16 18s16-7 16-18V12L24 4z" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="1"
-                      className="text-primary-foreground"
-                    />
-                    <text 
-                      x="24" 
-                      y="30" 
-                      textAnchor="middle" 
-                      className="font-serif fill-current text-primary-foreground"
-                      style={{ fontSize: '18px' }}
-                    >
-                      A
-                    </text>
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium tracking-[0.2em] text-primary-foreground uppercase">
-                    ALBM
-                  </span>
-                  <span className="text-[10px] tracking-[0.1em] text-primary-foreground/60 uppercase">
-                    A Little Bit More Trading Limited
-                  </span>
-                </div>
+                {/* Metallic serif ALBM */}
+                <span 
+                  className="font-serif text-2xl font-normal tracking-tight"
+                  style={{
+                    background: 'linear-gradient(135deg, #A0A0A0 0%, #606060 50%, #808080 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  ALBM
+                </span>
+                {/* Tiny sans-serif descriptor */}
+                <span className="text-[9px] tracking-[0.15em] text-primary-foreground/50 uppercase">
+                  A Little Bit More Trading
+                </span>
               </Link>
               <p className="text-sm text-primary-foreground/70 leading-relaxed max-w-sm">
                 Your trusted partner for global trade solutions across Greater China and ASEAN markets.
@@ -110,19 +103,19 @@ export function Footer() {
                   <div className="space-y-3">
                     <a 
                       href="mailto:info@albmtrading.com"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       info@albmtrading.com
                     </a>
                     <a 
                       href="mailto:logistics@albmtrading.com"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       logistics@albmtrading.com
                     </a>
                     <a 
                       href="mailto:admin@albmtrading.com"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       admin@albmtrading.com
                     </a>
@@ -136,19 +129,19 @@ export function Footer() {
                   <nav className="space-y-3">
                     <Link 
                       href="#ecosystem"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       Ecosystem
                     </Link>
                     <Link 
                       href="#competencies"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       Competencies
                     </Link>
                     <Link 
                       href="#integrity"
-                      className="block text-sm text-primary-foreground/70 hover:text-[#D4C4A8] transition-colors duration-300"
+                      className="block text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300"
                     >
                       Integrity
                     </Link>
@@ -158,12 +151,18 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <Separator className="bg-primary-foreground/10" />
 
       {/* Bottom Bar with ESG Statement */}
-      <div className="py-8">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="py-8"
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
@@ -181,7 +180,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   )
 }

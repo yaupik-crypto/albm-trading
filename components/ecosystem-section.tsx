@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 export function EcosystemSection() {
   return (
@@ -9,7 +8,7 @@ export function EcosystemSection() {
       <article className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.header 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
@@ -28,7 +27,7 @@ export function EcosystemSection() {
 
         {/* AEO Explicit Content */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -43,31 +42,21 @@ export function EcosystemSection() {
 
         {/* Interactive Bento Grid */}
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
-          {/* TMG Feature Card - Large */}
+          {/* TMG Feature Card - Large with real Unsplash image */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(212, 196, 168, 0.15)" }}
             className="lg:col-span-7 relative group cursor-pointer overflow-hidden border border-border"
           >
-            {/* Wine Cellar Image Placeholder */}
+            {/* Wine Cellar Image */}
             <div className="relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-neutral-800">
-                {/* Placeholder pattern for wine cellar */}
-                <div className="absolute inset-0 opacity-30">
-                  <div className="grid grid-cols-8 grid-rows-6 h-full">
-                    {Array.from({ length: 48 }).map((_, i) => (
-                      <div key={i} className="border border-neutral-700/30 flex items-center justify-center">
-                        <div className="w-2 h-6 bg-neutral-700/40 rounded-full" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              {/* Gold tint on hover */}
-              <div className="absolute inset-0 bg-[#D4C4A8]/0 group-hover:bg-[#D4C4A8]/20 transition-colors duration-500" />
+              <img
+                src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=800"
+                alt="Premium wine cellar"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              />
               {/* ALBM Logo Overlay */}
               <div className="absolute top-6 left-6 bg-white/90 p-3">
                 <span className="text-xs font-medium tracking-[0.2em] text-foreground uppercase">ALBM</span>
@@ -75,7 +64,7 @@ export function EcosystemSection() {
             </div>
             {/* Card Content */}
             <div className="p-8 lg:p-10 bg-background">
-              <span className="text-xs tracking-[0.2em] text-[#D4C4A8] uppercase mb-4 block">
+              <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase mb-4 block">
                 Flagship Subsidiary
               </span>
               <h3 className="font-serif text-2xl lg:text-3xl font-normal text-foreground mb-4">
@@ -94,17 +83,16 @@ export function EcosystemSection() {
           <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8">
             {/* Supply Chain Card */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{ y: -4 }}
-              className="border border-border p-8 lg:p-10 bg-background group cursor-pointer"
+              className="border border-border p-8 lg:p-10 bg-background group cursor-pointer hover:border-foreground/30 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase mb-4 block">
                 Infrastructure
               </span>
-              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3 group-hover:text-[#A0A0A0] transition-colors duration-300">
+              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3">
                 Supply Chain Backbone
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -114,17 +102,16 @@ export function EcosystemSection() {
 
             {/* Direct Sourcing Card */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ y: -4 }}
-              className="border border-border p-8 lg:p-10 bg-background group cursor-pointer"
+              className="border border-border p-8 lg:p-10 bg-background group cursor-pointer hover:border-foreground/30 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase mb-4 block">
                 Sourcing
               </span>
-              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3 group-hover:text-[#A0A0A0] transition-colors duration-300">
+              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3">
                 Direct-to-Estate
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -132,19 +119,18 @@ export function EcosystemSection() {
               </p>
             </motion.div>
 
-            {/* Cold Chain Card with champagne border */}
+            {/* Cold Chain Card */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              whileHover={{ y: -4 }}
-              className="border border-[#D4C4A8]/50 p-8 lg:p-10 bg-background group cursor-pointer"
+              className="border border-border p-8 lg:p-10 bg-background group cursor-pointer hover:border-foreground/30 transition-colors duration-300"
             >
-              <span className="text-xs tracking-[0.2em] text-[#D4C4A8] uppercase mb-4 block">
+              <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase mb-4 block">
                 Capability
               </span>
-              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3 group-hover:text-[#A0A0A0] transition-colors duration-300">
+              <h3 className="font-serif text-xl lg:text-2xl font-normal text-foreground mb-3">
                 Enterprise Cold-Chain
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -156,7 +142,7 @@ export function EcosystemSection() {
 
         {/* Entity Structure for AI clarity */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
