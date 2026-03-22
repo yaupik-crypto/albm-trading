@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import Lenis from "lenis"
 import { Shield } from "lucide-react"
@@ -597,6 +598,12 @@ export default function Home() {
                     retain data only as long as required for compliance and
                     service delivery.
                   </p>
+                  <Link
+                    href="/privacy"
+                    className="mt-6 inline-block text-[0.62rem] font-medium uppercase tracking-[0.3em] text-black underline-offset-4 transition-colors hover:text-gray-500"
+                  >
+                    Privacy Policy
+                  </Link>
                 </div>
               </div>
               <p className="mt-16 text-center text-[0.6rem] uppercase tracking-[0.4em] text-gray-400">
