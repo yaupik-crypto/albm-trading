@@ -50,5 +50,8 @@ Issue 模板：痛點一句、邊個俾錢、平台、定價、v1 三個功能�
 - 用戶：揀、撳、砍。
 
 ## 8. 決策記錄
-- 2026-09-06：AY100 獨立品牌。首個動工 AY-004（同行報價單分析，benchmark 用用戶自己收過嘅報價，唔用外部 API）。AY-002 改為內部 Radar。AY-001 排第 4–6。AY-003 屬主線一。
-- 待決：ay100-core Supabase project 開唔開（US$10/月）；AY-004 賣畀同行嘅衝突接唔接受；新 GitHub org 名。
+- 2026-09-06：AY100 獨立品牌。「可計算地賺錢」係渠道入場標準（五個變數：單位成本、單位收入、波動、幾耐知結果、容量），詳見 docs/2026-09-06-calculable-channels-and-first-move.md。
+- 2026-09-06：`ay100-core` Supabase project 已開（ref `dxxcjsqwoamubiwhdady`，ap-southeast-1，US$10/月）。
+- 2026-09-06：AY 編號重新 baseline：AY-000 Core · AY-001 Radar（內部）· AY-002 Market Tape（主線一數據收集）· AY-003 第一個對外 app（由 Radar 揀）· AY-004 Polymarket maker bot v1。酒行報價單分析移出 AY100，入 tmg-wms。
+- 2026-09-06：YouTube／IG／TikTok 只做 app demo 發行渠道（UTM 追蹤），唔做收入來源。Meta 付費廣告只喺 Scale 閘用。
+- 待決：新 GitHub org／品牌名；Polymarket 起始資本。
